@@ -28,9 +28,3 @@ Appen ska som minst presentera följande data:
 * 💨 **Vind:** Hur mycket det blåser.
 * 🌡️ **Temperatur:** Aktuella grader.
 * ☁️ **Molnighet:** Hur molnigt det är.
-
-## 🔗 Referenser och API
-Väderdata hämtas från **met.no**.
-
-
-**API-anrop (XML):**
