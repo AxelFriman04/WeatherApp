@@ -1,5 +1,6 @@
 package se.miun.g3.labb1;
 
+import android.media.quality.ActiveProcessingPicture;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -7,6 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,7 +23,22 @@ public class MainActivity extends AppCompatActivity {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+
+
+            ApiHandler hej = ApiHandler.getInstance();
+            try{
+                hej.getStream();
+            }
+            catch (Exception e){
+                //Get rekt
+            }
+
             return insets;
         });
     }
+
+
+
+
+
 }
