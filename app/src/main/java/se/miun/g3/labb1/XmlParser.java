@@ -15,10 +15,13 @@ public class XmlParser implements StreamCallBack{
     private static final String ns = null;
     private InputStream inputStream;
 
-
     public WeatherData getData(){
         WeatherData data = new WeatherData();
         new ApiHandler(this).execute();
+        data.setRain(readRain());
+        data.setWind(readWind());
+        data.setTemperature(readTemp());
+        data.setCloud(readCloud());
         return data;
     }
     @Override
@@ -36,6 +39,34 @@ public class XmlParser implements StreamCallBack{
             in.close();
         }
     }
+
+    private double readRain(){
+        double rain = 0.0;
+
+        return rain;
+    }
+
+    private double  readWind(){
+        double wind = 0.0;
+
+        return wind;
+    }
+
+    private String readCloud(){
+        String cloud = "";
+
+        return cloud;
+    }
+
+    private double readTemp(){
+        double temp = 0.0;
+
+        return temp;
+    }
+
+
+
+
     private void readWeatherData (XmlPullParser parser) throws XmlPullParserException, IOException {
         parser.require(XmlPullParser.START_TAG, ns, "weatherdata");
         while (parser.next() != XmlPullParser.END_TAG) {
