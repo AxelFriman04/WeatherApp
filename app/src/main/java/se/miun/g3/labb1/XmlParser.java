@@ -11,10 +11,20 @@ import java.time.Instant;
 
 
 //This XmlParser class is an modified version of "https://developer.android.com/develop/connectivity/network-ops/xml"
-public class XmlParser {
+public class XmlParser implements StreamCallBack{
     private static final String ns = null;
+    private InputStream inputStream;
 
 
+    public WeatherData getData(){
+        WeatherData data = new WeatherData();
+        new ApiHandler(this).execute();
+        return data;
+    }
+    @Override
+    public void whenStreamReady(InputStream stream){
+        inputStream = stream;
+    }
     public void parse(InputStream in) throws XmlPullParserException, IOException {
         try {
             XmlPullParser parser = Xml.newPullParser();
