@@ -16,25 +16,28 @@
         android:layout_marginTop="80dp"
         android:text="Weather App"
         android:textSize="42dp"
+        android:textColor="@color/darkBlue"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageCloudIcon"
-        android:layout_width="200px"
-        android:layout_height="200px"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="180dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="176dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/partly_cloudy_day_48px" />
+        app:srcCompat="@drawable/icon" />
 
     <TextView
         android:id="@+id/textTemperature"
+        android:textSize="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="42dp"
         android:background="@color/background"
         android:text="Temperature"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,9 +45,10 @@
 
     <TextView
         android:id="@+id/textWindspeed"
+        android:textSize="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
+        android:layout_marginStart="120dp"
         android:layout_marginTop="32dp"
         android:text="Wind speed"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,42 +56,45 @@
 
     <TextView
         android:id="@+id/textCloudiness"
+        android:textSize="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
+        android:layout_marginStart="120dp"
         android:layout_marginTop="32dp"
         android:text="Cloudiness"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textWindspeed" />
 
+
     <TextView
         android:id="@+id/textPrecipitation"
+        android:textSize="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
+        android:layout_marginStart="120dp"
         android:layout_marginTop="32dp"
         android:text="Precipitation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textCloudiness" />
-
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="220dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginStart="288dp"
+        android:layout_marginBottom="40dp"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/buttonRefresh"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textProgressBar"
+        android:textSize="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginBottom="48dp"
         android:text="Refreshing weather data"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/buttonRefresh"
@@ -98,7 +105,7 @@
         android:layout_width="132dp"
         android:layout_height="69dp"
         android:layout_marginStart="136dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="212dp"
         android:backgroundTint="@color/darkBlue"
         android:fontFamily="sans-serif"
         android:text="Refresh"
