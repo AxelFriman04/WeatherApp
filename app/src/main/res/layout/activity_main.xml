@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="220dp"
         android:layout_marginBottom="52dp"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/buttonRefresh"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -89,7 +89,7 @@
         android:layout_marginStart="52dp"
         android:layout_marginBottom="64dp"
         android:text="Refreshing weather data"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/buttonRefresh"
         app:layout_constraintStart_toStartOf="parent" />
 

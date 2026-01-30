@@ -9,7 +9,7 @@ public class WeatherData {
     public WeatherData(){
         rain = 0.0;
         wind = 0.0;
-        cloud = "";
+        cloud = "cloudy";
         temperature = 0.0;
     }
     public WeatherData(double rain, double wind, double temp, String cloud) {
@@ -22,7 +22,7 @@ public class WeatherData {
     public void setRain(double d){
         rain = d;
     }
-    public double getRain(double d){
+    public double getRain(){
         return rain;
     }
 

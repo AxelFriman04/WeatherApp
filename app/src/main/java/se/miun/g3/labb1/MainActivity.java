@@ -1,6 +1,10 @@
 package se.miun.g3.labb1;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +24,30 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        updateValues();
+
+    }
+
+    public void updateValues (){
+        WeatherData weatherData = new WeatherData();
+
+        TextView tVTemperature = findViewById(R.id.textTemperature);
+        double temperature = weatherData.getTemperature();
+        tVTemperature.setText("Temperature: " + temperature);
+
+
+        TextView tVWindspeed = findViewById(R.id.textWindspeed);
+        double wind = weatherData.getWind();
+        tVWindspeed.setText("Wind Speed: " + wind);
+
+        TextView tVCloudiness = findViewById(R.id.textCloudiness);
+        String cloudiness = weatherData.getCloud();
+        tVCloudiness.setText("Cloudiness: " + cloudiness);
+
+        TextView tVPrecipitation = findViewById(R.id.textPrecipitation);
+        double precipitation = weatherData.getRain();
+        tVPrecipitation.setText("Precipitation: " + precipitation);
     }
 
 }
