@@ -2,6 +2,7 @@ package se.miun.g3.labb1;
 
 import android.media.quality.ActiveProcessingPicture;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,22 +24,15 @@ public class MainActivity extends AppCompatActivity {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-
-
-            ApiHandler hej = ApiHandler.getInstance();
-            try{
-                hej.getStream();
-            }
-            catch (Exception e){
-                //Get rekt
-            }
-
             return insets;
         });
     }
+/*
+    new ApiHandler(this).execute();
+    @Override
+    public void whenStreamReady(InputStream stream) {
+        System.out.println("Go to sleep Jesper! ");
+    }
 
-
-
-
-
+ */
 }
