@@ -14,6 +14,7 @@ import java.time.Instant;
 public class XmlParser {
     private static final String ns = null;
 
+    WeatherData weatherData = new WeatherData();
 
     public void parse(InputStream in) throws XmlPullParserException, IOException {
         try {
@@ -44,33 +45,33 @@ public class XmlParser {
     private void readProduct (XmlPullParser parser) throws XmlPullParserException, IOException {
         parser.require(XmlPullParser.START_TAG, ns, "product");
 
-        Instant currDateTime = Instant.now();
-        Instant lowerSpanDateTime = currDateTime.minusSeconds(1800);
-        Instant upperSpanDateTime = currDateTime.plusSeconds(1800);
+//        Instant currDateTime = Instant.now();
+//        Instant lowerSpanDateTime = currDateTime.minusSeconds(1800);
+//        Instant upperSpanDateTime = currDateTime.plusSeconds(1800);
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.getEventType() != XmlPullParser.START_TAG) {
                 continue;
             }
-            if (parser.getName().equals("time")) {
-                String from = parser.getAttributeValue(null, "from");
-                String to = parser.getAttributeValue(null, "to");
-                Instant fromDateTime = Instant.parse(from);
-                Instant toDateTime = Instant.parse(to);
-                //Collects the temp, wind direction, cloudiness
-                if (fromDateTime.equals(toDateTime) && fromDateTime.isAfter(lowerSpanDateTime) &&
-                        fromDateTime.isBefore(upperSpanDateTime))
-                {
-                    readTime(parser);
-                }
+//            if (parser.getName().equals("time")) {
+//                String from = parser.getAttributeValue(null, "from");
+//                String to = parser.getAttributeValue(null, "to");
+//                Instant fromDateTime = Instant.parse(from);
+//                Instant toDateTime = Instant.parse(to);
+//                //Collects the temp, wind direction, cloudiness
+//                if (fromDateTime.equals(toDateTime) && fromDateTime.isAfter(lowerSpanDateTime) &&
+//                        fromDateTime.isBefore(upperSpanDateTime))
+//                {
+//                    readTime(parser);
+//                }
                 //collects precipation
                 //else if (currDateTime.isAfter(fromDateTime) && currDateTime.isBefore(toDateTime) &&
                 //        fromDateTime.equals(toDateTime.plusSeconds(3600)))
                 //{
                 //    readTime(parser); // UNIKA readTimes eller inte?!?!?
                 //}
-                else {
-                    skip(parser);
-                }
+//                else {
+//                    skip(parser);
+//                }
             }
             else {
                 skip(parser);
@@ -107,10 +108,12 @@ public class XmlParser {
             }
             String name = parser.getName();
             if (name.equals("temperature")) {
-                temp = parser.getAttributeValue(null, "value");
+                weatherData.temperature = parser.getAttributeValue(null, "value");
                 skip(parser);
-            }
-            else {
+            } else if (name.equals("windSpeed")) {
+                weatherData.wind = parser.getAttributeValue(null, "value");
+                skip(parser);
+            }else {
                 skip(parser);
             }
         }
