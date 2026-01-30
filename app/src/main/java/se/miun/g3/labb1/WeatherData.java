@@ -32,6 +32,7 @@ public class WeatherData {
     public double getWind(){
         return wind;
     }
+
     public void setCloud(String s){
         cloud = s;
     }

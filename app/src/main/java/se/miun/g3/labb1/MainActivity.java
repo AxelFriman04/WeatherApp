@@ -1,16 +1,22 @@
 package se.miun.g3.labb1;
 
+import android.media.quality.ActiveProcessingPicture;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,5 +55,12 @@ public class MainActivity extends AppCompatActivity {
         double precipitation = weatherData.getRain();
         tVPrecipitation.setText("Precipitation: " + precipitation);
     }
+/*
+    new ApiHandler(this).execute();
+    @Override
+    public void whenStreamReady(InputStream stream) {
+        System.out.println("Go to sleep Jesper! ");
+    }
 
+ */
 }
